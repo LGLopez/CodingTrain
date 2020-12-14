@@ -1,5 +1,6 @@
 let mobileNet;
 let label= '';
+let confi= '';
 let video;
 
 function modelReady(){
@@ -16,7 +17,7 @@ function gotResults(error, results) {
     else{
         // console.log(results);
         label = results[0].label;
-        // let prob = results[0].confidence;
+        confi = results[0].confidence;
         // createP(label);
         // createP(prob);
         mobileNet.predict(gotResults);
@@ -43,4 +44,5 @@ function draw() {
     fill(255);
     textSize(32);
     text(label, 10, height-400);
+    text(confi, 10, height-450);
 }
